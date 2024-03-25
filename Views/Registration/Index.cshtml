@@ -1,0 +1,25 @@
+﻿@model MedicalAppointment.Models.Appointment
+@{
+    ViewData["Title"] = "Nội dung Phiếu khám bệnh";
+}
+<table class="table">
+    <tr>
+        <th>Tên bệnh nhân</th>
+        <td>@Model.ApplicationUser?.FullName</td>
+    </tr>
+    <tr>
+        <th>Ngày đăng kí</th>
+        <td>@String.Format("{0:dd/MM/yyyy}", @Model.RegistrationDate) </td>
+    </tr>
+    <tr>
+        <th>Tình trạng sức khoẻ</th>
+        <td>@Model.Symptom</td>
+    </tr>
+
+    <tr>
+        <th>Khoa khám</th>
+        <td>@Model.Specialization?.Name</td>
+    </tr>
+</table>
+
+

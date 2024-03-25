@@ -1,0 +1,134 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewData["Title"] - Đăng kí khám bệnh</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/adminsite.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/MedicalAppointment.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/fonts/font-awesome.min.css" />
+
+</head>
+<body>
+    <div class="page">
+        <div class="sidebar">
+            <div class="navtop-row ps-3 navbar navbar-dark ">
+                <div class="container-fluid text-center">
+                    <a class="navbar-brand" href="">
+                        <i class="fa fa-plus px-2 text-danger" aria-hidden="true"></i>Đăng kí trực tiếp
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+            </div>
+
+            <div class="nav-scrollable navbar-collapse collapse sidebar-item" id="accordion">
+                <nav class="flex-column text-danger">
+                    <div class="nav-item px-2">
+                        <a class="nav-link" href="~/Admin/Registration/Create">
+                            <span class="nav-icon">
+                                <i class="fa fa-hospital-o" aria-hidden="true"></i>
+                            </span>
+                            <span class="px-2">Trang chủ</span>
+                        </a>
+
+                    </div>
+
+                    <div class="nav-item px-2">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Quản lý bệnh nhân</span>
+                        </a>
+                        <div id="collapse2" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/User/Index">DS bệnh nhân</a>
+                                <a class="px-3" href="~/Admin/Appointment/Index">Phiếu khám bệnh</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item px-2">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Quản lý bác sĩ</span>
+                        </a>
+                        <div id="collapse3" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/Doctor/Index">Danh sách bác sĩ</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item px-2">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Chuyên khoa</span>
+                        </a>
+                        <div id="collapse4" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="text-light px-3" href="~/Admin/Specialization/Index">
+                                    Danh sách các khoa
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item px-2">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse5">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Quản lý hệ thống</span>
+                        </a>
+                        <div id="collapse5" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/#">Tài khoản bệnh nhân</a>
+                                <a class="px-3" href="~/Admin/#">Tài khoản bác sĩ</a>
+                                <a class="px-3" href="~/Admin/Account/Index">Tài khoản quản lý</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="nav-item px-2" id="logout">
+                        <a class="nav-link collapsed btn" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                            <span class="nav-icon"><i class="fa fa-chevron-right collapse-toggle-rotate-90" aria-hidden="true"></i></span>
+                            <span class="px-2">Đăng xuất</span>
+                        </a>
+                        <div id="collapse1" class="collapse collapse-list" data-bs-parent="#accordion">
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/#">Thông tin các nhân</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/#">Đăng xuất</a>
+                            </div>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <main>
+            <div class="top-row px-4 ">
+                <a class="nav-link text-secondary" href="~/Admin/#">
+                    <span class="fa fa-sign-out px-2" aria-hidden="true"></span>Đăng xuất
+                </a>
+            </div>
+
+            <article class="content px-4 bg-layout">
+                @RenderBody()
+            </article>
+        </main>
+    </div>
+    <footer class="border-top footer text-muted text-center">
+        <div class="container mt-5">
+            &copy; 2024 - DangKiKhamBenh - <a href="https://github.com/NgoPhuocDong">PhuocDongIT</a>
+        </div>
+        <div>Contact:</div>
+        <div>Email: dongatdong@gmail.com</div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+
+

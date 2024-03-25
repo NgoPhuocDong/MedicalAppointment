@@ -1,0 +1,210 @@
+/* _content/MedicalAppointment/Areas/Admin/Views/Shared/_LayoutAdmin.cshtml.rz.scp.css */
+
+.page[b-5kr44sm7q5] {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+main[b-5kr44sm7q5] {
+    flex: 1;
+}
+
+/*.sidebar {
+    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+}*/
+.sidebar[b-5kr44sm7q5] {
+    background-image: linear-gradient(180deg,#104E8B 0%,#FF82AB 80%);
+}
+.collapse-item[b-5kr44sm7q5] {
+    font-size: 14px;
+    border-left: 2px solid lightgrey;
+}
+.collapse-list[b-5kr44sm7q5] {
+    padding-left:17px;
+}
+.top-row[b-5kr44sm7q5] {
+    background-color: #f7f7f7;
+    border-bottom: 1px solid #d6d5d5;
+    justify-content: flex-end;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+}
+
+.top-row a[b-5kr44sm7q5], .top-row .btn-link[b-5kr44sm7q5] {
+    white-space: nowrap;
+    margin-left: 1.5rem;
+}
+
+.top-row a:first-child[b-5kr44sm7q5] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* nav */
+.navbar-toggler[b-5kr44sm7q5] {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.navtop-row[b-5kr44sm7q5] {
+    height: 3.5rem;
+    background-color: rgba(0,0,0,0.4);
+}
+
+.navbar-brand[b-5kr44sm7q5] {
+    font-size: 1.1rem;
+}
+
+.oi[b-5kr44sm7q5] {
+    width: 2rem;
+    font-size: 1.1rem;
+    vertical-align: text-top;
+    top: -2px;
+}
+.bg-layout[b-5kr44sm7q5] {
+    background:snow;
+}
+.nav-item a[b-5kr44sm7q5] {
+    font-size: 0.95rem;
+    padding-bottom: 0.5rem;
+}
+.nav-item:first-of-type[b-5kr44sm7q5] {
+    padding-top: 1rem;
+}
+
+.nav-item:last-of-type[b-5kr44sm7q5] {
+    padding-bottom: 1rem;
+}
+.nav-icon[b-5kr44sm7q5]{
+    font-size:100%;
+}
+
+/*Responsive*/
+@media (max-width: 1195px) {
+    .top-row:not(.auth)[b-5kr44sm7q5] {
+        display: none;
+    }
+
+    .top-row.auth[b-5kr44sm7q5] {
+        justify-content: space-between;
+    }
+
+    .top-row a[b-5kr44sm7q5], .top-row .btn-link[b-5kr44sm7q5] {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1195px) {
+    .page[b-5kr44sm7q5] {
+        flex-direction: row;
+    }
+
+    .sidebar[b-5kr44sm7q5] {
+        width: 16.7%;
+        height: 100vh;
+        position: sticky;
+        top: 0;
+    }
+
+    .top-row[b-5kr44sm7q5] {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+    }
+
+    .top-row[b-5kr44sm7q5], article[b-5kr44sm7q5] {
+        padding-left: 2rem !important;
+        padding-right: 1.5rem !important;
+    }
+}
+
+@media (min-width: 1195px) {
+    .navbar-toggler[b-5kr44sm7q5] {
+        display: none;
+    }
+
+    .sidebar-item[b-5kr44sm7q5] {
+        /*         Never collapse the sidebar for wide screens */
+        display: block;
+    }
+
+    .nav-scrollable[b-5kr44sm7q5] {
+        /* Allow sidebar to scroll for tall menus */
+        height: calc(100vh - 3.5rem);
+        overflow-y: auto;
+    }
+
+    #logout[b-5kr44sm7q5] {
+        display: none;
+    }
+}
+@media (max-width: 1400px) and (min-width: 1195px) {
+    span i[b-5kr44sm7q5]{
+        display: none;
+    }
+}
+
+.collapse-toggle-rotate-90[b-5kr44sm7q5]{
+    transition: transform 0.3s ease-in-out; /* Thêm hiệu ứng chuyển tiếp */
+}
+
+.nav-link .collapse-toggle-rotate-90[b-5kr44sm7q5]{
+    transform: rotate(90deg);
+}
+
+.nav-link.collapsed .collapse-toggle-rotate-90[b-5kr44sm7q5] {
+    transform: rotate(0deg);
+}
+/* _content/MedicalAppointment/Views/Shared/_Layout.cshtml.rz.scp.css */
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+a.navbar-brand[b-3jga15i341] {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+a[b-3jga15i341] {
+  color: #0077cc;
+}
+
+.btn-primary[b-3jga15i341] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active[b-3jga15i341], .nav-pills .show > .nav-link[b-3jga15i341] {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.border-top[b-3jga15i341] {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom[b-3jga15i341] {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow[b-3jga15i341] {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy[b-3jga15i341] {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+.footer[b-3jga15i341] {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  line-height: 60px;
+}
+
+
+

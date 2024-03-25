@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="banner-box">
+    <div class="banner">
+        <img src="https://png.pngtree.com/background/20210706/original/pngtree-doctors-medical-technology-banner-background-poster-picture-image_16119.jpg" alt="medical banner" style="width: 100%; height: 100%">
+        <a asp-controller="Registration" asp-action="Create" class="btn">Đăng kí khám bệnh</a>
+    </div>
+</div>
+<style>
+    .banner .btn {
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        font-size: 16px;
+        padding: 16px 30px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        text-align: center;
+        color: white;
+        background-color: #0d6efd;
+    }
+    .banner .btn:hover {
+        background-color: #0d6efd;
+        opacity: 70%;
+    }
+</style>
+
+
