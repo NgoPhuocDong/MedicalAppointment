@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MedicalAppointment.Data;
 using MedicalAppointment.Models;
 using MedicalAppointment.Models.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -13,6 +14,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace MedicalAppointment.Controllers
 {
+
     public class RegistrationController : Controller
     {
         private readonly ApplicationDbContext _context;

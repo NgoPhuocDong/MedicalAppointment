@@ -5,20 +5,57 @@
 <ul class="navbar-nav">
     @if (SignInManager.IsSignedIn(User))
     {
-        <li class="nav-item dropdown">
-            <a class="nav-link text-dark btn dropdown-toggle" data-bs-toggle="dropdown">Hello @User.Identity?.Name!</a>
-            <ul class="dropdown-menu mt-2 text-dark">
-                <li class="dropdown-item"><a class="nav-link py-2" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Thông tin tài khoản</a></li>
-                <li class="nav-link dropdown-item">
-                    <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
-                        <button type="submit" class="nav-link btn">
-                            <i class="fa fa-sign-out" aria-hidden="true"></i>
-                            Đăng xuất
-                        </button>
-                    </form>
-                </li>
-            </ul>
-        </li>
+        if (User.IsInRole("Admin"))
+        {
+            <li class="nav-item dropdown">
+                <a class="text-dark btn dropdown-toggle" data-bs-toggle="dropdown">Hello Admin @User.Identity?.Name!</a>
+                <ul class="dropdown-menu mt-2">
+                    <li class="dropdown-item"><a class="nav-link py-2 text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Thông tin tài khoản</a></li>
+                    <li class="nav-link dropdown-item">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="text-dark btn">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                Đăng xuất
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        }
+        else if (User.IsInRole("Doctor"))
+        {
+            <li class="nav-item dropdown">
+                <a class="text-dark btn dropdown-toggle" data-bs-toggle="dropdown">Hello Doctor @User.Identity?.Name!</a>
+                <ul class="dropdown-menu mt-2">
+                    <li class="dropdown-item"><a class="nav-link py-2 text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Thông tin tài khoản</a></li>
+                    <li class="nav-link dropdown-item">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="text-dark btn">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                Đăng xuất
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        }
+        else
+        {
+            <li class="nav-item dropdown">
+                <a class="text-dark btn dropdown-toggle" data-bs-toggle="dropdown">Hello @User.Identity?.Name!</a>
+                <ul class="dropdown-menu mt-2">
+                    <li class="dropdown-item"><a class="nav-link py-2 text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Thông tin tài khoản</a></li>
+                    <li class="nav-link dropdown-item">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                            <button type="submit" class="text-dark btn">
+                                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                                Đăng xuất
+                            </button>
+                        </form>
+                    </li>
+                </ul>
+            </li>
+        }
     }
     else
     {

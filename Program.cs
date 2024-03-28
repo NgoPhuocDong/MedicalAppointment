@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc.Razor;
 using MedicalAppointment.Models;
 using System.Security.Principal;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Authorization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +16,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddRoles<IdentityRole>()   
     .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
@@ -34,7 +36,12 @@ builder.Services.AddAuthentication().AddGoogle(options =>
     options.ClientId = builder.Configuration.GetSection("GoogleAuthSettings").GetValue<string>("ClientId") ?? "";
     options.ClientSecret = builder.Configuration.GetSection("GoogleAuthSettings").GetValue<string>("ClientSecret") ?? "";
 });
-
+//builder.Services.AddAuthorization(options =>
+//{
+//    options.FallbackPolicy = new AuthorizationPolicyBuilder()
+//        .RequireAuthenticatedUser()
+//        .Build();
+//});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

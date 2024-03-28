@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MedicalAppointment.Data;
 using MedicalAppointment.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MedicalAppointment.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]  
     public class AppointmentController : Controller
     {
         private readonly ApplicationDbContext _context;

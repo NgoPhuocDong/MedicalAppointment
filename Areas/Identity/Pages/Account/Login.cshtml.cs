@@ -116,6 +116,10 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    if (User.IsInRole("Admin"))
+                    {
+                        return Redirect("~/Admin/Specialization/Index");
+                    }
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

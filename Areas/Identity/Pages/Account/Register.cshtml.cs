@@ -85,6 +85,12 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
 
             [Required]
             public string PhoneNumber { get; set; }
+
+            [Required]
+            public string Address { get; set; }
+
+            [Required]
+            public string Gender { get; set; }
             //phần đã được custom
 
             /// <summary>
@@ -134,6 +140,8 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
                 {
                     FullName = Input.FullName,
                     DateOfBirth = Input.DateOfBirth,
+                    Gender = Input.Gender,
+                    Address = Input.Address,
                     PhoneNumber = Input.PhoneNumber,
                 };
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
@@ -143,6 +151,9 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User created a new account with password.");
+
+                    //xét quyền cho tài khoản được tạo
+                    await _userManager.AddToRoleAsync(user,"Patients");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

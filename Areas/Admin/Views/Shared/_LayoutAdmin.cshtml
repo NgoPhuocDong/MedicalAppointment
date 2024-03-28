@@ -80,9 +80,7 @@
                         </a>
                         <div id="collapse5" class="collapse collapse-list" data-bs-parent="#accordion">
                             <div class="collapse-item">
-                                <a class="px-3" href="~/Admin/#">Tài khoản bệnh nhân</a>
-                                <a class="px-3" href="~/Admin/#">Tài khoản bác sĩ</a>
-                                <a class="px-3" href="~/Admin/Account/Index">Tài khoản quản lý</a>
+                                <a class="px-3" href="~/Admin/#">Phân quyền</a>
                             </div>
                         </div>
                     </div>
@@ -105,10 +103,8 @@
         </div>
 
         <main>
-            <div class="top-row px-4 ">
-                <a class="nav-link text-secondary" href="~/Admin/#">
-                    <span class="fa fa-sign-out px-2" aria-hidden="true"></span>Đăng xuất
-                </a>
+            <div class="top-row px-4">
+                <partial name="_LoginPartial" class="nav-link"/>
             </div>
 
             <article class="content px-4 bg-layout">

@@ -144,6 +144,14 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
             returnUrl = returnUrl ?? Url.Content("~/");
             // Get the information about the user from the external login provider
             var info = await _signInManager.GetExternalLoginInfoAsync();
+
+            var fullname = info?.Principal?.FindFirst(ClaimTypes.Name)?.Value;
+            var gender = info?.Principal?.FindFirst(ClaimTypes.Gender)?.Value;
+            var mobilephone = info?.Principal?.FindFirst(ClaimTypes.MobilePhone)?.Value;
+            var street = info?.Principal?.FindFirst(ClaimTypes.StreetAddress)?.Value;
+            var state = info?.Principal?.FindFirst(ClaimTypes.StateOrProvince)?.Value;
+            var country = info?.Principal?.FindFirst(ClaimTypes.Country)?.Value;
+            // Lưu trữ thông tin vào hệ thống
             if (info == null)
             {
                 ErrorMessage = "Error loading external login information during confirmation.";
@@ -152,14 +160,21 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
-                var user = CreateUser();
 
+                var user = new ApplicationUser()
+                {
+                    Gender = gender,
+                    FullName = fullname,
+                    Address = (street + state + country),
+                    PhoneNumber = mobilephone
+                };
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
 
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
+                    await _userManager.AddToRoleAsync(user, "Patients");
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {

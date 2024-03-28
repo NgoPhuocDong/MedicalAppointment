@@ -1,8 +1,10 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using MedicalAppointment.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MedicalAppointment.Controllers;
+
 
 public class HomeController : Controller
 {
