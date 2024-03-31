@@ -1,4 +1,5 @@
-﻿using System.CodeDom.Compiler;
+using System.CodeDom.Compiler;
+using System.Reflection.Emit;
 using MedicalAppointment.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
@@ -7,12 +8,10 @@ using NuGet.Protocol.Plugins;
 
 namespace MedicalAppointment.Data;
 
-//public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string,
-//        ApplicationUserClaim, ApplicationUserRole, ApplicationUserLogin,
-//        ApplicationRoleClaim, ApplicationUserToken>
-
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-
+//public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+public class ApplicationDbContext : IdentityDbContext<ApplicationUser, ApplicationRole, string,
+        ApplicationUserClaim, ApplicationUserRole, ApplicationUserLogin,
+        ApplicationRoleClaim, ApplicationUserToken>
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options)
@@ -25,17 +24,49 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         base.OnModelCreating(builder);
 
-        var admin = new IdentityRole("Admin");
-        admin.NormalizedName = "ADMIN";
+        builder.Entity<ApplicationUser>(b =>
+        {
+            // Each User can have many UserClaims
+            b.HasMany(e => e.Claims)
+                .WithOne(e => e.User)
+                .HasForeignKey(uc => uc.UserId)
+                .IsRequired();
 
-        var patients = new IdentityRole("Patients");
-        patients.NormalizedName = "PATIENTS";
+            // Each User can have many UserLogins
+            b.HasMany(e => e.Logins)
+                .WithOne(e => e.User)
+                .HasForeignKey(ul => ul.UserId)
+                .IsRequired();
 
-        var doctor = new IdentityRole("Doctor");
-        doctor.NormalizedName = "DOCTOR";
+            // Each User can have many UserTokens
+            b.HasMany(e => e.Tokens)
+                .WithOne(e => e.User)
+                .HasForeignKey(ut => ut.UserId)
+                .IsRequired();
 
-        builder.Entity<IdentityRole>().HasData(admin,patients,doctor);
+            // Each User can have many entries in the UserRole join table
+            b.HasMany(e => e.UserRoles)
+                .WithOne(e => e.User)
+                .HasForeignKey(ur => ur.UserId)
+            .IsRequired();
+        });
+
+        builder.Entity<ApplicationRole>(b =>
+        {
+            // Each Role can have many entries in the UserRole join table
+            b.HasMany(e => e.UserRoles)
+                .WithOne(e => e.Role)
+                .HasForeignKey(ur => ur.RoleId)
+                .IsRequired();
+
+            // Each Role can have many associated RoleClaims
+            b.HasMany(e => e.RoleClaims)
+                .WithOne(e => e.Role)
+                .HasForeignKey(rc => rc.RoleId)
+                .IsRequired();
+        });
     }
+
 }
 
 

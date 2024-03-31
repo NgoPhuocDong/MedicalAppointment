@@ -174,7 +174,8 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
                 var result = await _userManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
-                    await _userManager.AddToRoleAsync(user, "Patients");
+                    await _userManager.AddToRoleAsync(user, "Admin");
+                    //await _userManager.AddToRoleAsync(user, "Patients");
                     result = await _userManager.AddLoginAsync(user, info);
                     if (result.Succeeded)
                     {

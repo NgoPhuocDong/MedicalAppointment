@@ -59,13 +59,9 @@ namespace MedicalAppointment.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    
-
                     b.HasKey("Id");
 
                     b.HasIndex("RoleId");
-
-                    
 
                     b.ToTable("AspNetRoleClaims", (string)null);
                 });
@@ -193,12 +189,9 @@ namespace MedicalAppointment.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                   
-
                     b.HasKey("LoginProvider", "ProviderKey");
 
                     b.HasIndex("UserId");
-
 
                     b.ToTable("AspNetUserLogins", (string)null);
                 });
@@ -211,17 +204,9 @@ namespace MedicalAppointment.Migrations
                     b.Property<string>("RoleId")
                         .HasColumnType("TEXT");
 
-                    
-
-                   
-
                     b.HasKey("UserId", "RoleId");
 
                     b.HasIndex("RoleId");
-
-                    
-
-                 
 
                     b.ToTable("AspNetUserRoles", (string)null);
                 });
@@ -239,14 +224,10 @@ namespace MedicalAppointment.Migrations
                         .HasMaxLength(128)
                         .HasColumnType("TEXT");
 
-                    
-
                     b.Property<string>("Value")
                         .HasColumnType("TEXT");
 
                     b.HasKey("UserId", "LoginProvider", "Name");
-
-                    
 
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
@@ -305,101 +286,52 @@ namespace MedicalAppointment.Migrations
                     b.ToTable("Specializations");
                 });
 
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Name")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("NormalizedName")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("IdentityRole");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "ab1096c7-74bd-4b00-8757-6db65cd0e237",
-                            Name = "Admin",
-                            NormalizedName = "ADMIN"
-                        },
-                        new
-                        {
-                            Id = "7c41edd5-5a85-49be-aff2-78af6de9901f",
-                            Name = "Patients",
-                            NormalizedName = "PATIENTS"
-                        },
-                        new
-                        {
-                            Id = "151f1531-f4ae-4462-bbe7-59184834de70",
-                            Name = "Doctor",
-                            NormalizedName = "DOCTOR"
-                        });
-                });
-
             modelBuilder.Entity("MedicalAppointment.Models.ApplicationRoleClaim", b =>
                 {
-                    b.HasOne("MedicalAppointment.Models.ApplicationRole", null)
-                        .WithMany()
+                    b.HasOne("MedicalAppointment.Models.ApplicationRole", "Role")
+                        .WithMany("RoleClaims")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                   
 
                     b.Navigation("Role");
                 });
 
             modelBuilder.Entity("MedicalAppointment.Models.ApplicationUserClaim", b =>
                 {
-                    b.HasOne("MedicalAppointment.Models.ApplicationUser", null)
-                        .WithMany()
+                    b.HasOne("MedicalAppointment.Models.ApplicationUser", "User")
+                        .WithMany("Claims")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("MedicalAppointment.Models.ApplicationUserLogin", b =>
                 {
-                    b.HasOne("MedicalAppointment.Models.ApplicationUser", null)
-                        .WithMany()
+                    b.HasOne("MedicalAppointment.Models.ApplicationUser", "User")
+                        .WithMany("Logins")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    
 
                     b.Navigation("User");
                 });
 
             modelBuilder.Entity("MedicalAppointment.Models.ApplicationUserRole", b =>
                 {
-                    b.HasOne("MedicalAppointment.Models.ApplicationRole", null)
-                        .WithMany()
+                    b.HasOne("MedicalAppointment.Models.ApplicationRole", "Role")
+                        .WithMany("UserRoles")
                         .HasForeignKey("RoleId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    
-
-                    b.HasOne("MedicalAppointment.Models.ApplicationUser", null)
-                        .WithMany()
+                    b.HasOne("MedicalAppointment.Models.ApplicationUser", "User")
+                        .WithMany("UserRoles")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    
 
                     b.Navigation("Role");
 
@@ -408,13 +340,11 @@ namespace MedicalAppointment.Migrations
 
             modelBuilder.Entity("MedicalAppointment.Models.ApplicationUserToken", b =>
                 {
-                    b.HasOne("MedicalAppointment.Models.ApplicationUser", null)
-                        .WithMany()
+                    b.HasOne("MedicalAppointment.Models.ApplicationUser", "User")
+                        .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    
 
                     b.Navigation("User");
                 });
