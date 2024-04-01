@@ -117,6 +117,10 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
             if (result.Succeeded)
             {
                 _logger.LogInformation("{Name} logged in with {LoginProvider} provider.", info.Principal.Identity.Name, info.LoginProvider);
+                if (User.IsInRole("Admin"))
+                {
+                    return Redirect("~/Admin/Specialization/Index");
+                }
                 return LocalRedirect(returnUrl);
             }
             if (result.IsLockedOut)
@@ -200,6 +204,7 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
                         }
 
                         await _signInManager.SignInAsync(user, isPersistent: false, info.LoginProvider);
+                        
                         return LocalRedirect(returnUrl);
                     }
                 }
