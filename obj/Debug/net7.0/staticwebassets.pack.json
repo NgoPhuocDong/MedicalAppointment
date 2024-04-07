@@ -21,6 +21,10 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/ajax.js",
+      "PackagePath": "staticwebassets/js/ajax.js"
+    },
+    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

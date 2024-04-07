@@ -34,6 +34,7 @@ namespace MedicalAppointment.Models
     {
         public virtual ApplicationUser? User { get; set; }
         public virtual ApplicationRole? Role { get; set; }
+
     }
 
     public class ApplicationUserClaim : IdentityUserClaim<string>

@@ -149,7 +149,8 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
             // Get the information about the user from the external login provider
             var info = await _signInManager.GetExternalLoginInfoAsync();
 
-            var fullname = info?.Principal?.FindFirst(ClaimTypes.Name)?.Value;
+            var name = info?.Principal?.FindFirst(ClaimTypes.Name)?.Value;
+            var surname = info?.Principal?.FindFirst(ClaimTypes.Surname)?.Value;
             var gender = info?.Principal?.FindFirst(ClaimTypes.Gender)?.Value;
             var mobilephone = info?.Principal?.FindFirst(ClaimTypes.MobilePhone)?.Value;
             var street = info?.Principal?.FindFirst(ClaimTypes.StreetAddress)?.Value;
@@ -168,7 +169,7 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
                 var user = new ApplicationUser()
                 {
                     Gender = gender,
-                    FullName = fullname,
+                    FullName = surname + name,
                     Address = (street + state + country),
                     PhoneNumber = mobilephone
                 };

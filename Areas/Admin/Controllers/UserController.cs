@@ -32,6 +32,31 @@ namespace MedicalAppointment.Areas.Admin.Controllers
             return View(listUser);
         }
 
+        public async Task<IActionResult> PatientsIndex()
+        {
+            var listUser = await _context.Users
+                .Include(m => m.UserRoles)
+                .Where(u => u.UserRoles != null && u.UserRoles.Any(r => r.Role != null && r.Role.Name == "Patients"))
+                .ToListAsync();
+            return View(listUser);
+        }
+        public async Task<IActionResult> DoctorIndex()
+        {
+            var listUser = await _context.Users
+                .Include(m => m.UserRoles)
+                .Where(u => u.UserRoles != null && u.UserRoles.Any(r => r.Role != null && r.Role.Name == "Doctor"))
+                .ToListAsync();
+            return View(listUser);
+        }
+        public async Task<IActionResult> AdminIndex()
+        {
+            var listUser = await _context.Users
+                .Include(m => m.UserRoles)
+                .Where(u => u.UserRoles != null && u.UserRoles.Any(r => r.Role != null && r.Role.Name == "Admin"))
+                .ToListAsync();
+            return View(listUser);
+        }
+
         //2.chi tiết tài khoản
         public async Task<IActionResult> Details(string id)
         {
@@ -39,18 +64,21 @@ namespace MedicalAppointment.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            //var userrole = await _context.UserRoles.FirstOrDefaultAsync(m => m.UserId == id);
-            //ViewData["Role"] = userrole?.Role?.Name;
             var user = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (user == null)
             {
                 return NotFound();
             }
+            var userRole = _context.UserRoles.FirstOrDefaultAsync(m => m.UserId == id);
+            var role = _context.UserRoles.ToList();
+
+            ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Name");
+            ViewData["GrantedRoles"] = await _context.UserRoles.Where(ur => ur.UserId == id).Select(ur => ur.RoleId).ToListAsync();
 
             return View(user);
         }
-        
+
         // GET: Admin/Specialization/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
@@ -90,6 +118,30 @@ namespace MedicalAppointment.Areas.Admin.Controllers
         private bool UserExists(string id)
         {
             return (_context.Users?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+        [HttpPost]
+        public JsonResult GrantPermissions(string UserId, string RoleId)
+        {
+            var grantPermissions = _context.UserRoles.SingleOrDefault(m => m.UserId == UserId && m.RoleId == RoleId);
+            if (grantPermissions != null)
+            {
+                //Xóa
+                _context.UserRoles.Remove(grantPermissions);
+                _context.SaveChanges();
+            }
+            else
+            {
+                grantPermissions = new ApplicationUserRole();
+                grantPermissions.UserId = UserId;
+                grantPermissions.RoleId = RoleId;
+                _context.Add(grantPermissions);
+                _context.SaveChanges();
+            }
+            return Json(new
+            {
+                status = "Đã phân quyền"
+            });
         }
     }
 }

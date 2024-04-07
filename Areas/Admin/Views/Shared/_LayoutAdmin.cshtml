@@ -44,7 +44,7 @@
                         </a>
                         <div id="collapse2" class="collapse collapse-list" data-bs-parent="#accordion">
                             <div class="collapse-item">
-                                <a class="px-3" href="~/Admin/User/Index">DS bệnh nhân</a>
+                                <a class="px-3" href="~/Admin/User/PatientsIndex">DS bệnh nhân</a>
                                 <a class="px-3" href="~/Admin/Appointment/Index">Phiếu khám bệnh</a>
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                         </a>
                         <div id="collapse3" class="collapse collapse-list" data-bs-parent="#accordion">
                             <div class="collapse-item">
-                                <a class="px-3" href="~/Admin/Doctor/Index">Danh sách bác sĩ</a>
+                                <a class="px-3" href="~/Admin/User/DoctorIndex">Danh sách bác sĩ</a>
                             </div>
                         </div>
                     </div>
@@ -80,7 +80,10 @@
                         </a>
                         <div id="collapse5" class="collapse collapse-list" data-bs-parent="#accordion">
                             <div class="collapse-item">
-                                <a class="px-3" href="~/Admin/#">Phân quyền</a>
+                                <a class="px-3" href="~/Admin/User/Index">Quản lý tài khoản</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/Role/Index">Quản lý vai trò</a>
                             </div>
                         </div>
                     </div>
@@ -104,7 +107,7 @@
 
         <main>
             <div class="top-row px-4">
-                <partial name="_LoginPartial" class="nav-link"/>
+                <partial name="_LoginPartial" class="nav-link" />
             </div>
 
             <article class="content px-4 bg-layout">
@@ -121,7 +124,7 @@
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
-    
+    <script src="~/js/ajax.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
