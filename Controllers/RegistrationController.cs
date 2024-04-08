@@ -56,7 +56,8 @@ namespace MedicalAppointment.Controllers
                     FullName = user.FullName,
                     DateOfBirth = user.DateOfBirth,
                     Address = user.Address,
-                    PhoneNumber = user.PhoneNumber
+                    PhoneNumber = user.PhoneNumber,
+                    Gender = user.Gender
                 };
                 return View(AppointmentVM);
             }

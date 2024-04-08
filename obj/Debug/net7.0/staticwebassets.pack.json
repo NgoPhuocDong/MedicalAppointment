@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/.DS_Store"
     },
     {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/Identitysite.css",
+      "PackagePath": "staticwebassets/css/Identitysite.css"
+    },
+    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/adminsite.css",
       "PackagePath": "staticwebassets/css/adminsite.css"
     },

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "UMgrJnMJfFlTxgiE4qHhesQTbUrjspaatji95NFT5g4=",
+  "Hash": "mKdolQJgSN2sH4L4o8lKGE3+RYhp4U10LYW2Js2RoC8=",
   "Source": "MedicalAppointment",
   "BasePath": "_content/MedicalAppointment",
   "Mode": "Default",
@@ -1103,6 +1103,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/adminsite.css"
+    },
+    {
+      "Identity": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/Identitysite.css",
+      "SourceId": "MedicalAppointment",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/",
+      "BasePath": "_content/MedicalAppointment",
+      "RelativePath": "css/Identitysite.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/Identitysite.css"
     },
     {
       "Identity": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/site.css",

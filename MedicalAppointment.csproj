@@ -42,11 +42,17 @@
     <Folder Include="Areas\Admin\Views\Shared\" />
     <Folder Include="Views\Registration\" />
     <Folder Include="Areas\Admin\Views\User\" />
+    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\images\profile\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Views\Home\Index.cshtml.css">
       <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="wwwroot\images\" />
+    <Content Remove="wwwroot\images\profile\" />
   </ItemGroup>
 </Project>

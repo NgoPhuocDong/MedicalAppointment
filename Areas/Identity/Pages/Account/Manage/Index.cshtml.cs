@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using MedicalAppointment.Models;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -15,15 +16,24 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account.Manage
 {
     public class IndexModel : PageModel
     {
+        //private readonly IWebHostEnvironment _webHost;
+        private IHostEnvironment _hostingEnvironment;
+        private IWebHostEnvironment _webHost;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly SignInManager<ApplicationUser> _signInManager;
 
         public IndexModel(
             UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager)
+            SignInManager<ApplicationUser> signInManager,
+            IHostEnvironment hostingEnvironment,
+            IWebHostEnvironment webHost
+            )
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _webHost = webHost;
+            _hostingEnvironment = hostingEnvironment;
+
         }
 
         /// <summary>
@@ -59,19 +69,40 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account.Manage
             [Phone]
             [Display(Name = "Phone number")]
             public string PhoneNumber { get; set; }
+
+            //phần đã được custom 
+            [Required]
+            [DataType(DataType.Text)]
+            [Display(Name = "Họ và tên")]
+            public string FullName { get; set; }
+
+            [Required]
+            [DataType(DataType.Date)]
+            public DateTime DateOfBirth { get; set; }
+
+            [Required]
+            public string Address { get; set; }
+
+            public IFormFile Image { get; set; }
+            [Required]
+            public string Gender { get; set; }
         }
 
         private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
             Username = userName;
-
+            ViewData["UserId"] = user.Id;
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                FullName = user.FullName,
+                Gender = user.Gender,
+                Address = user.Address,
+                DateOfBirth = user.DateOfBirth,
             };
+            ViewData["image"] = user.Image;
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -83,6 +114,36 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account.Manage
             }
 
             await LoadAsync(user);
+            return Page();
+        }
+        public async Task<IActionResult> Upload()
+        {
+            // Logic tải ảnh lên
+            var user = await _userManager.GetUserAsync(User);
+
+            if (Input.Image != null && Input.Image.Length > 0)
+            {
+                string uploads = Path.Combine(_hostingEnvironment.ContentRootPath, "wwwroot", "images", "profile");
+                string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(Input.Image.FileName);
+                string filePath = Path.Combine(uploads, uniqueFileName);
+
+                // Xóa ảnh cũ (nếu có)
+                string oldImagePath = Path.Combine(uploads, user.Image); // Giả sử 'user.Image' lưu trữ tên tệp ảnh hiện tại
+                if (System.IO.File.Exists(oldImagePath))
+                {
+                    System.IO.File.Delete(oldImagePath);
+                }
+
+                using (Stream fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await Input.Image.CopyToAsync(fileStream);
+                }
+
+                // Cập nhật thuộc tính ảnh đại diện của người dùng
+                user.Image = uniqueFileName; // Thay thế bằng tên thuộc tính của bạn
+                await _userManager.UpdateAsync(user); // Cập nhật đối tượng người dùng trong cơ sở dữ liệu
+            }
+
             return Page();
         }
 
@@ -100,6 +161,16 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account.Manage
                 return Page();
             }
 
+            //Image Upload funtion
+            await Upload();
+            //
+            user.FullName = Input.FullName;
+            user.DateOfBirth = Input.DateOfBirth;
+            user.Gender = Input.Gender;
+            user.Address = Input.Address;
+
+
+            // Cập nhật thông tin người dùng
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
             if (Input.PhoneNumber != phoneNumber)
             {
@@ -111,9 +182,19 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account.Manage
                 }
             }
 
+            try
+            {
+                await _userManager.UpdateAsync(user);
+                StatusMessage = "Your profile has been updated";
+            }
+            catch (Exception ex)
+            {
+                StatusMessage = "Error updating profile: " + ex.Message;
+            }
+
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
             return RedirectToPage();
         }
+
     }
 }

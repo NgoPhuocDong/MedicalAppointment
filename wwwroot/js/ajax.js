@@ -14,3 +14,15 @@ function SaveGrantPermissions(UserId, RoleId) {
         }
     })
 }
+function submitImage() {
+    const result = confirm("Bạn muốn đổi ảnh đại diện?");
+
+    if (result) {
+        // Cách 2: Gọi trực tiếp submit() trên biểu mẫu
+        const form = document.getElementById('profile-form');
+        form.submit();
+    } else {
+        // Nút "Cancel" được nhấp
+        // Không làm gì
+    }
+}
