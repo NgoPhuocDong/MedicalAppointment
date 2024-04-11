@@ -286,24 +286,6 @@ namespace MedicalAppointment.Migrations
                     b.ToTable("Specializations");
                 });
 
-            modelBuilder.Entity("MedicalAppointment.Models.UserSpecialization", b =>
-                {
-                    b.Property<string>("UserId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SpecializeId")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("SpecializationId")
-                        .HasColumnType("TEXT");
-
-                    b.HasKey("UserId", "SpecializeId");
-
-                    b.HasIndex("SpecializationId");
-
-                    b.ToTable("UserSpecializations");
-                });
-
             modelBuilder.Entity("MedicalAppointment.Models.ApplicationRoleClaim", b =>
                 {
                     b.HasOne("MedicalAppointment.Models.ApplicationRole", "Role")
@@ -380,23 +362,6 @@ namespace MedicalAppointment.Migrations
                     b.Navigation("ApplicationUser");
 
                     b.Navigation("Specialization");
-                });
-
-            modelBuilder.Entity("MedicalAppointment.Models.UserSpecialization", b =>
-                {
-                    b.HasOne("MedicalAppointment.Models.Specialization", "Specialization")
-                        .WithMany()
-                        .HasForeignKey("SpecializationId");
-
-                    b.HasOne("MedicalAppointment.Models.ApplicationUser", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Specialization");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MedicalAppointment.Models.ApplicationRole", b =>
