@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using NuGet.Protocol.Plugins;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace MedicalAppointment.Data;
 
@@ -19,7 +20,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
     }
     public virtual DbSet<Specialization> Specializations { set; get; }
     public virtual DbSet<Appointment> Appointments { set; get; }
-
+    public virtual DbSet<UserSpecialization> UserSpecializations { set; get; }
+     //dotnet ef migrations add UserSpecializationsCreate
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
@@ -65,6 +67,8 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
                 .HasForeignKey(rc => rc.RoleId)
                 .IsRequired();
         });
+        builder.Entity<UserSpecialization>()
+            .HasKey(us => new { us.UserId, us.SpecializeId });
     }
 
 }

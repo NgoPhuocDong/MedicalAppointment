@@ -33,6 +33,7 @@
     <None Remove="Areas\Admin\Views\Shared\" />
     <None Remove="Views\Registration\" />
     <None Remove="Areas\Admin\Views\User\" />
+    <None Remove="Views\Doctor\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\ViewModels\" />
@@ -44,6 +45,7 @@
     <Folder Include="Areas\Admin\Views\User\" />
     <Folder Include="wwwroot\images\" />
     <Folder Include="wwwroot\images\profile\" />
+    <Folder Include="Views\Doctor\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="Views\Home\Index.cshtml.css">
