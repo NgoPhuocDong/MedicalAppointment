@@ -72,7 +72,7 @@ namespace MedicalAppointment.Areas.Admin.Controllers
             }
             var userRole = _context.UserRoles.FirstOrDefaultAsync(m => m.UserId == id);
             var role = _context.UserRoles.ToList();
-
+                                
             ViewData["RoleId"] = new SelectList(_context.Roles, "Id", "Name");
             ViewData["GrantedRoles"] = await _context.UserRoles.Where(ur => ur.UserId == id).Select(ur => ur.RoleId).ToListAsync();
 

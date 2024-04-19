@@ -1,6 +1,6 @@
 ﻿@model IEnumerable<MedicalAppointment.Models.ApplicationUser>
 @{
-    ViewData["Title"] = "Danh sách bệnh nhân";
+    ViewData["Title"] = "Danh sách tài khoản";
     int i = 0;
 }
 <h1>Danh sách tài khoản</h1>
@@ -33,6 +33,7 @@
                 <td>@user.PhoneNumber</td>
                 <td>@user.Email</td>
                 <td>
+   
                     <a class="btn btn-primary" asp-action="Details" asp-route-id="@user.Id">Chi tiết</a>
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@user.Id">Xoá</a>
                 </td>

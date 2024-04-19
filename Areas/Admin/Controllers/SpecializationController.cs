@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using MedicalAppointment.Data;
 using MedicalAppointment.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Numerics;
 
 namespace MedicalAppointment.Areas.Admin.Controllers
 {
@@ -44,6 +45,9 @@ namespace MedicalAppointment.Areas.Admin.Controllers
             {
                 return NotFound();
             }
+            ViewData["Doctor"] = new SelectList(_context.Users, "Id", "FullName");
+
+
 
             return View(specialization);
         }
@@ -59,7 +63,7 @@ namespace MedicalAppointment.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Name,Description")] Specialization specialization)
+        public async Task<IActionResult> Create([Bind("Name,Description,Price")] Specialization specialization)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +95,7 @@ namespace MedicalAppointment.Areas.Admin.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Name,Description")] Specialization specialization)
+        public async Task<IActionResult> Edit(string id, [Bind("Name,Description,Price")] Specialization specialization)
         {
             if (id != specialization.Id)
             {

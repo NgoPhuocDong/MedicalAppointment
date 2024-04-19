@@ -20,7 +20,7 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
     }
     public virtual DbSet<Specialization> Specializations { set; get; }
     public virtual DbSet<Appointment> Appointments { set; get; }
-    //public virtual DbSet<UserSpecialization> UserSpecializations { set; get; }
+    public virtual DbSet<Doctor> Doctors { set; get; }
      //dotnet ef migrations add UserSpecializationsCreate
     protected override void OnModelCreating(ModelBuilder builder)
     {

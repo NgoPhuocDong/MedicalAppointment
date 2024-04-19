@@ -33,12 +33,17 @@ namespace MedicalAppointment.Controllers
             {
                 return NotFound();
             }
-            var appointment = await _context.Appointments.FirstOrDefaultAsync(m => m.UserId == user.Id);
+            var appointment = await _context.Appointments.Include(m =>m.Specialization).FirstOrDefaultAsync(m => m.UserId == user.Id);
             if (appointment == null)
             {
                 return NotFound();
             }
+            //ViewData["Price"] = _context.Specializations.Where(m => m.Id == appointment.SpecializationId).ToList();
             return View(appointment);
+        }
+        public IActionResult Payment()
+        {
+            return View();
         }
         
         public async Task<IActionResult> Create()

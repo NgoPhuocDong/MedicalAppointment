@@ -26,3 +26,31 @@ function submitImage() {
         // Không làm gì
     }
 }
+//function SubmitForm(genderId) {
+//    const form = document.getElementById(genderId);
+//    form.submit();
+//}
+
+//$('input [type="checkbox"] [name="gender"]').on('change', function () {
+//    var selectedGender = $('input[type="checkbox"] [name="gender"]: checked').map(function () {
+//        return $(this).val();
+//    }).get();
+
+//    $.ajax({
+//        url: '/Doctor/GetFilteredDoctor',
+//        type: 'POST',
+//        dataType: 'html',
+//        data: {
+//            gender: selectedGender
+//        }，
+//        success: function (result) {
+//            $("#doctor-list").html(result);
+//        },
+//        error: function () {
+//            console.log('An error occurred while retrieving filtered product data.');
+//        }
+//    });
+//});
+
+
+

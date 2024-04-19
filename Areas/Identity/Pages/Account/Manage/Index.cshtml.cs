@@ -71,20 +71,17 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account.Manage
             public string PhoneNumber { get; set; }
 
             //phần đã được custom 
-            [Required]
             [DataType(DataType.Text)]
             [Display(Name = "Họ và tên")]
             public string FullName { get; set; }
 
-            [Required]
             [DataType(DataType.Date)]
             public DateTime DateOfBirth { get; set; }
 
-            [Required]
             public string Address { get; set; }
 
             public IFormFile Image { get; set; }
-            [Required]
+
             public string Gender { get; set; }
         }
 
@@ -128,12 +125,14 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account.Manage
                 string filePath = Path.Combine(uploads, uniqueFileName);
 
                 // Xóa ảnh cũ (nếu có)
-                string oldImagePath = Path.Combine(uploads, user.Image); // Giả sử 'user.Image' lưu trữ tên tệp ảnh hiện tại
-                if (System.IO.File.Exists(oldImagePath))
+                if(user.Image != null)
                 {
-                    System.IO.File.Delete(oldImagePath);
+                    string oldImagePath = Path.Combine(uploads, user.Image); // Giả sử 'user.Image' lưu trữ tên tệp ảnh hiện tại
+                    if (System.IO.File.Exists(oldImagePath))
+                    {
+                        System.IO.File.Delete(oldImagePath);
+                    }
                 }
-
                 using (Stream fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await Input.Image.CopyToAsync(fileStream);

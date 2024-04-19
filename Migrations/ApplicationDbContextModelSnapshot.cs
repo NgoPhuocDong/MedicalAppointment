@@ -269,6 +269,21 @@ namespace MedicalAppointment.Migrations
                     b.ToTable("Appointments");
                 });
 
+            modelBuilder.Entity("MedicalAppointment.Models.Doctor", b =>
+                {
+                    b.Property<string>("UserId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("SpecializationId")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("UserId", "SpecializationId");
+
+                    b.HasIndex("SpecializationId");
+
+                    b.ToTable("Doctors");
+                });
+
             modelBuilder.Entity("MedicalAppointment.Models.Specialization", b =>
                 {
                     b.Property<string>("Id")
@@ -280,6 +295,9 @@ namespace MedicalAppointment.Migrations
                     b.Property<string>("Name")
                         .HasMaxLength(200)
                         .HasColumnType("TEXT");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
 
                     b.HasKey("Id");
 
@@ -362,6 +380,25 @@ namespace MedicalAppointment.Migrations
                     b.Navigation("ApplicationUser");
 
                     b.Navigation("Specialization");
+                });
+
+            modelBuilder.Entity("MedicalAppointment.Models.Doctor", b =>
+                {
+                    b.HasOne("MedicalAppointment.Models.Specialization", "Specialization")
+                        .WithMany()
+                        .HasForeignKey("SpecializationId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("MedicalAppointment.Models.ApplicationUser", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Specialization");
+
+                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("MedicalAppointment.Models.ApplicationRole", b =>

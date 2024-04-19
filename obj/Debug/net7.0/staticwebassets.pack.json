@@ -5,12 +5,20 @@
       "PackagePath": "staticwebassets/MedicalAppointment.bundle.scp.css"
     },
     {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/Identitysite.css",
       "PackagePath": "staticwebassets/css/Identitysite.css"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/adminsite.css",
       "PackagePath": "staticwebassets/css/adminsite.css"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/calendar.css",
+      "PackagePath": "staticwebassets/css/calendar.css"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/site.css",
@@ -21,8 +29,24 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/profile/a0ab233e-b386-4324-aa68-706b8437b31d.png",
-      "PackagePath": "staticwebassets/images/profile/a0ab233e-b386-4324-aa68-706b8437b31d.png"
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/.DS_Store",
+      "PackagePath": "staticwebassets/images/.DS_Store"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/profile/72cb8ee6-b44d-4965-b741-57d25f8cce78.png",
+      "PackagePath": "staticwebassets/images/profile/72cb8ee6-b44d-4965-b741-57d25f8cce78.png"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/profile/96943e71-2022-4052-8061-d6aa4230ccb0.jpg",
+      "PackagePath": "staticwebassets/images/profile/96943e71-2022-4052-8061-d6aa4230ccb0.jpg"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/profile/female-doctor.png",
+      "PackagePath": "staticwebassets/images/profile/female-doctor.png"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/profile/male-doctor.png",
+      "PackagePath": "staticwebassets/images/profile/male-doctor.png"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/system/appointment.jpg",
@@ -37,8 +61,16 @@
       "PackagePath": "staticwebassets/images/system/location.jpg"
     },
     {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/system/medical-icon.png",
+      "PackagePath": "staticwebassets/images/system/medical-icon.png"
+    },
+    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/ajax.js",
       "PackagePath": "staticwebassets/js/ajax.js"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/calendar.js",
+      "PackagePath": "staticwebassets/js/calendar.js"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/qr.js",
@@ -49,8 +81,20 @@
       "PackagePath": "staticwebassets/js/site.js"
     },
     {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/.DS_Store",
+      "PackagePath": "staticwebassets/lib/.DS_Store"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/bootstrap/.DS_Store",
+      "PackagePath": "staticwebassets/lib/bootstrap/.DS_Store"
+    },
+    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/bootstrap/LICENSE",
       "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/bootstrap/dist/.DS_Store",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/.DS_Store"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
