@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="~/css/adminsite.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MedicalAppointment.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/lib/fonts/font-awesome.min.css" />
+    <link rel="stylesheet" href="~/css/calendar.css" asp-append-version="true" />
 
 </head>
 <body>
@@ -94,6 +95,15 @@
                             <div class="collapse-item">
                                 <a class="px-3" href="https://developers.facebook.com/apps/419197507121686/settings/basic/" target="_blank">Xác thực facebook</a>
                             </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/Shift/Index" target="_blank">Ca trực</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/ShiftSchedule/Index" target="_blank">ShiftSchedule</a>
+                            </div>
+                            <div class="collapse-item">
+                                <a class="px-3" href="~/Admin/Schedule/Index" target="_blank">Lịch trực</a>
+                            </div>
                         </div>
                     </div>
                     <div class="nav-item px-2" id="logout">
@@ -114,7 +124,7 @@
             </div>
         </div>
 
-        <main>
+        <main class="col-lg-10 col-md-10 col-ms-12 col-xs-12">
             <div class="top-row px-4">
                 <partial name="_LoginPartial" class="nav-link" />
             </div>
@@ -134,6 +144,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     <script src="~/js/ajax.js" asp-append-version="true"></script>
+    <script src="~/js/calendar.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

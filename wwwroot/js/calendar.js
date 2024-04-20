@@ -2,7 +2,6 @@
 const daysTag = document.querySelector(".days");
 const currentDate = document.querySelector(".current-date");
 const prevNextIcon = document.querySelectorAll(".icons span");
-
 // 2.Lấy ngày mới, năm và tháng hiện tại
 let date = new Date(),
     currYear = date.getFullYear(),
@@ -47,7 +46,7 @@ const renderCalendar = () => {
         // Thêm lớp "active" cho li nếu khớp với ngày, tháng và năm hiện tại
         let isToday = i  === date.getDate() && currMonth === new Date().getMonth()
             && currYear === new Date().getFullYear() ? "active" : "";
-        liTag += `<li class="${isToday}">${i}</li>`;
+        liTag += `<li id="date" class="${isToday}">${i}</li>`;
     }
 
     // Tạo các thẻ li cho những ngày đầu tiên của tháng sau
@@ -57,6 +56,8 @@ const renderCalendar = () => {
     // Hiển thị tháng và năm hiện tại
     currentDate.innerText = `${months[currMonth]}`+'-'+`${currYear}`;
     daysTag.innerHTML = liTag;
+
+    addClickEventToDays(currMonth, currYear);
 }
 // Gọi hàm renderCalendar để hiển thị lịch
 renderCalendar();
@@ -77,3 +78,24 @@ prevNextIcon.forEach(icon => { // getting prev and next icons
         renderCalendar(); // calling renderCalendar function
     });
 });
+
+const formBox = document.querySelector('.formBox');
+const close = document.querySelector('#close');
+const datetime = document.querySelector('#datetime');
+
+function addClickEventToDays(CurrMonth, CurrYear) {
+    const calendarDays = document.querySelectorAll('#date');
+    calendarDays.forEach(day => {
+        day.addEventListener('click', (event) => {
+            const selectedDay = parseInt(event.target.textContent);
+            datetime.value = new Date(CurrYear, CurrMonth, selectedDay+1).toISOString().slice(0, 10);
+            formBox.style.display = 'block';
+        });
+    });
+}
+
+close.addEventListener('click', () => {
+    formBox.style.display = 'none';  // Change display to 'block' on click
+});
+
+

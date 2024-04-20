@@ -21,7 +21,9 @@ public class ApplicationDbContext : IdentityDbContext<ApplicationUser, Applicati
     public virtual DbSet<Specialization> Specializations { set; get; }
     public virtual DbSet<Appointment> Appointments { set; get; }
     public virtual DbSet<Doctor> Doctors { set; get; }
-     //dotnet ef migrations add UserSpecializationsCreate
+    public virtual DbSet<Schedule> Schedules { set; get; }
+    public virtual DbSet<Shift> Shifts { set; get; }
+    //dotnet ef migrations add UserSpecializationsCreate
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);

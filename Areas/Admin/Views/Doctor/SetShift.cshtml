@@ -1,0 +1,55 @@
+﻿@model MedicalAppointment.Models.ViewModels.ShiftScheduleVM
+
+@{
+    ViewData["Title"] = "SetShift";
+}
+
+<h1>SetShift</h1>
+
+<h4>Schedule</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="SetShift">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group">
+                <label asp-for="UserId" class="control-label">Bác sĩ</label>
+                <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AppointmentDate" class="control-label">Chọn ngày</label>
+                <input asp-for="AppointmentDate" type="date" class="form-control" />
+                <span asp-validation-for="AppointmentDate" class="text-danger"></span>
+            </div>
+            <div class="form-group mb-3">
+                <label asp-for="TimeSlot" class="control-label">Chọn ca</label>
+                <div class="form-group">
+                    <input type="checkbox" name="c" value="7:00-9:00" asp-for="TimeSlot" onchange="SaveGrantShift('13:00-15:00')"/>
+                    <label>7:00-9:00</label>
+                    <br />
+                    <input type="checkbox" name="c" value="9:00-11:00" asp-for="TimeSlot" onchange="SaveGrantShift('13:00-15:00')"/>
+                    <label>9:00-11:00</label>
+                    <br />
+                    <input type="checkbox" name="c" value="13:00-15:00" asp-for="TimeSlot" onchange="SaveGrantShift('13:00-15:00')"/>
+                    <label>13:00-15:00</label>
+                    <br />
+                    <input type="checkbox" name="c" value="15:00-17:00" asp-for="TimeSlot" onchange="SaveGrantShift('15:00-17:00')"/>
+                    <label>15:00-17:00</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Gửi" class="btn btn-primary" />
+            </div>
+        </form>
+        <span class="text-danger">@ViewBag.ErrorMessager</span>
+
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

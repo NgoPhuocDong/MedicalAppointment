@@ -63,3 +63,21 @@
 .days li:not(.active):hover::before {
     background: #f2f2f2;
 }
+
+
+/*// CSS for animation (replace with your desired animation styles)*/
+.closing {
+    animation: closeFormAnimation 0.5s 1;
+}
+
+@keyframes closeFormAnimation {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}

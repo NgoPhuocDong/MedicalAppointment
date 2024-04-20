@@ -14,6 +14,35 @@ function SaveGrantPermissions(UserId, RoleId) {
         }
     })
 }
+//form chọn ca cho bác sĩ
+//function SaveGrantShift() {
+//    // Lấy dữ liệu từ các input trong form
+//    var formData = {
+//        UserId: $('#userid').val(), // Giả sử #Id là id của select
+//        Date: $('#datetime').val(), // Giả sử #datetime là id của input date
+//        TimeSlot: [] // Mảng lưu trữ các giá trị của checkbox được chọn
+//    };
+
+//    // Lặp qua các checkbox để lấy giá trị của các checkbox được chọn
+//    $('input[type="checkbox"]:checked').each(function() {
+//        formData.TimeSlot.push($(this).val());
+//    });
+
+//    // Gửi request AJAX lên server
+//    $.ajax({
+//        url: '/Admin/Doctor/GrantShift',
+//        type: 'post',
+//        data: JSON.stringify(formData),
+//        contentType: 'application/json',
+//        success: function (data) {
+//            alert(data.status);
+//        },
+//        error: function (xhr, status, error) {
+//            console.error('Error:', error);
+//        }
+//    });
+//}
+//lưu hình ảnh đại diện
 function submitImage() {
     const result = confirm("Bạn muốn đổi ảnh đại diện?");
 
@@ -26,6 +55,8 @@ function submitImage() {
         // Không làm gì
     }
 }
+
+//form lọc dữ liệu
 //function SubmitForm(genderId) {
 //    const form = document.getElementById(genderId);
 //    form.submit();

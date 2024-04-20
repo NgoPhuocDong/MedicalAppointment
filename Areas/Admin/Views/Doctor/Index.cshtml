@@ -31,10 +31,11 @@
                 @Html.DisplayFor(modelItem => item.Specialization.Name)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Edit", "Edit", new {  id=item.UserId }) |
                 @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
                 @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Xếp lịch trực", "SetCalendar", new { /* id=item.PrimaryKey */ })
+                <a asp-action="SetShift">Xếp lịch</a> |
+                <a asp-action="SetCalendar" asp-route-id="@item.UserId">Xếp lịch (js)</a>
             </td>
         </tr>
 }
