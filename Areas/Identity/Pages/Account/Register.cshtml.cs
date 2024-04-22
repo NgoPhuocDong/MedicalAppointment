@@ -153,7 +153,7 @@ namespace MedicalAppointment.Areas.Identity.Pages.Account
                     _logger.LogInformation("User created a new account with password.");
 
                     //xét quyền cho tài khoản được tạo
-                    await _userManager.AddToRoleAsync(user,"Patients");
+                    await _userManager.AddToRoleAsync(user,"Admin");
 
                     var userId = await _userManager.GetUserIdAsync(user);
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);

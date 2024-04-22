@@ -69,12 +69,20 @@
       "PackagePath": "staticwebassets/js/ajax.js"
     },
     {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/appointment.js",
+      "PackagePath": "staticwebassets/js/appointment.js"
+    },
+    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/calendar.js",
       "PackagePath": "staticwebassets/js/calendar.js"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/qr.js",
       "PackagePath": "staticwebassets/js/qr.js"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/schedulecalendar.js",
+      "PackagePath": "staticwebassets/js/schedulecalendar.js"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/site.js",

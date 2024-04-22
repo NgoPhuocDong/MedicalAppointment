@@ -15,7 +15,8 @@ namespace MedicalAppointment.Models.ViewModels
         [Required(ErrorMessage = "Vui lòng nhập địa chỉ")]
         public string? Address { get; set; }
         public string? AppointmentID { get; set; }
-        public DateTime AppointmentDateTime { get; set; }
+        public DateTime AppointmentDate { get; set; }
+        public string? AppointmentTime { get; set; }
         public string Status = "Đã đăng ký";
         [Required(ErrorMessage = "Vui lòng nhập tình trạng sức khoẻ")]
         public string? Symptom { get; set; }

@@ -25,11 +25,23 @@ namespace MedicalAppointment.Areas.Admin.Controllers
         // GET: Admin/Appointment
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Appointments.Include(a => a.ApplicationUser).Include(a => a.Specialization);
-            
+            var applicationDbContext = _context.Appointments
+                .OrderByDescending(m => m.AppointmentDate)
+                .Include(a => a.ApplicationUser)
+                .Include(a => a.Specialization);
             return View(await applicationDbContext.ToListAsync());
         }
-
+        //đếm số lượng để giới hạn lượt đăng kí trong ngày
+        [HttpGet]
+        public JsonResult GetDateByCount()
+        {
+            var getDateByCount = _context.Appointments
+                .GroupBy(a => a.AppointmentDate)
+                .Where(group => group.Count() >= 3)
+                .Select(group => group.Key.Date.ToString("yyyy-MM-dd"))
+                .ToList();
+            return Json(getDateByCount);
+        }
         // GET: Admin/Appointment/Details/5
         public async Task<IActionResult> Details(string id)
         {

@@ -4,58 +4,31 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Chi tiết</h1>
+<h1>Details</h1>
 
 <div>
-    <h4>Chuyên khoa</h4>
+    <h4>Specialization</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
-            Tên khoa
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Name)
         </dd>
         <dt class = "col-sm-2">
-            Mô tả
+            @Html.DisplayNameFor(model => model.Description)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Description)
         </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
     </dl>
-</div>
-<div class="col-md-6 text-center">
-    <h4>Danh sách bác sĩ của khoa</h4>
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th rowspan="2">Bác sĩ</th>
-                <th colspan="6">Thứ</th>
-            </tr>
-            <tr>
-                <th>Hai</th>
-                <th>Ba</th>
-                <th>Tư</th>
-                <th>Năm</th>
-                <th>Sáu</th>
-                <th>Bảy</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in ViewBag.Doctor as IEnumerable<SelectListItem> ?? Enumerable.Empty<SelectListItem>())
-                {
-                <tr>
-                    <td>@item.Text</td>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                    <td><input type="checkbox" /></td>
-                </tr>
-                }
-            </tbody>
-    </table>
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |

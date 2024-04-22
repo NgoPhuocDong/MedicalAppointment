@@ -26,7 +26,7 @@
                     <li>Thứ 6</li>
                     <li class="text-warning">Thứ 7</li>
                 </ul>
-                
+
                 <ul class="days list-unstyled"></ul>
             </div>
         </div>
@@ -40,24 +40,24 @@
             </div>
             <div class="mb-3">
                 <label class="control-label">Ngày khám</label>
-                <input asp-for="AppointmentDate" id="datetime" type="date" class="form-control" readonly/>
+                <input asp-for="AppointmentDate" id="datetime" type="date" class="form-control" readonly />
             </div>
             <h5 class="mx-auto">Ca trực</h5>
             <div class="form-group">
                 <div class="form-group">
-                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="7:00-9:00"/>
+                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="7:00-9:00" />
                     <label class="form-check-label" for="grantShift7am-9am">7:00-9:00</label>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="9:00-11:00"/>
+                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="9:00-11:00" />
                     <label class="form-check-label" for="grantShift9am-11am">9:00-11:00</label>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="13:00-15:00"/>
+                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="13:00-15:00" />
                     <label class="form-check-label" for="grantShift1pm-3pm">13:00-15:00</label>
                 </div>
                 <div class="form-group">
-                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="15:00-17:00"/>
+                    <input type="checkbox" name="TimeSlot" class="form-check-input" value="15:00-17:00" />
                     <label class="form-check-label" for="grantShift3pm-5pm">15:00-17:00</label>
                 </div>
             </div>
@@ -72,6 +72,11 @@
         </form>
     </div>
 </div>
+@*<script src="~/js/calendar.js" asp-append-version="true"></script>*@
+
+@section Scripts {
+    <script src="~/js/calendar.js" asp-append-version="true"></script>
+}
 
 <style>
     .formBox {

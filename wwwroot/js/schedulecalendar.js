@@ -32,7 +32,7 @@ const UserId = selectedOption.value;
 
 function GetId() {
     $.ajax({
-        url: '/Admin/Doctor/GetSavedDates',
+        url: '/Doctor/GetSavedDates',
         type: 'GET',
         dataType: 'json',
         data: { UserId: UserId },
@@ -54,7 +54,7 @@ function GetIdandDate(datetime) {
         dateTime: datetime
     }
     $.ajax({
-        url: '/Admin/Doctor/GetSavedShirt',
+        url: '/Doctor/GetSavedShirt',
         type: 'GET',
         dataType: 'json',
         data: jsonData,

@@ -25,15 +25,17 @@ namespace MedicalAppointment.Controllers
             _context = context;
             _userManager = userManager;
         }
-
-        public async Task<IActionResult> Index(string id)
+        
+        public async Task<IActionResult> Index()
         {
             var user = await _userManager.FindByNameAsync(User.Identity?.Name ?? "");
             if (user == null)
             {
                 return NotFound();
             }
-            var appointment = await _context.Appointments.Include(m =>m.Specialization).FirstOrDefaultAsync(m => m.UserId == user.Id);
+            var appointment = await _context.Appointments.Include(m =>m.Specialization)
+                .OrderByDescending(m => m.RegistrationDate)
+                .FirstOrDefaultAsync(m => m.UserId == user.Id);
             if (appointment == null)
             {
                 return NotFound();
@@ -71,12 +73,12 @@ namespace MedicalAppointment.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PatientID,FullName,DateOfBirth,Gender,PhoneNumber,Address,AppointmentDateTime,Symptom,SpecializationId")] AppointmentVM appointmentVM)
+        public async Task<IActionResult> Create([Bind("PatientID,FullName,DateOfBirth,Gender,PhoneNumber,Address,AppointmentDate,AppointmentTime,Symptom,SpecializationId")] AppointmentVM appointmentVM)
         {
             ViewData["SpecializationId"] = new SelectList(_context.Specializations, "Id", "Name");
             if (ModelState.IsValid)
             {
-                ApplicationUser appUser = new ApplicationUser();
+                //ApplicationUser appUser = new ApplicationUser();
                 //appUser.Id = appointmentVM.PatientID;
                 //appUser.FullName = appointmentVM.FullName;
                 //appUser.DateOfBirth = appointmentVM.DateOfBirth;
@@ -90,14 +92,18 @@ namespace MedicalAppointment.Controllers
                 {
                     Appointment appointment = new Appointment();
                     var user = await _userManager.FindByNameAsync(User.Identity?.Name ?? "");
-                    if(user == null)
+                    var price = await _context.Specializations.FindAsync(appointmentVM.SpecializationId);
+                    if (user == null || price == null)
                     {
                         return NotFound();
                     }
                     appointment.UserId = user.Id;
                     appointment.RegistrationDate = DateTime.Now;
                     appointment.Symptom = appointmentVM.Symptom;
+                    appointment.AppointmentDate = appointmentVM.AppointmentDate;
+                    appointment.AppointmentTime = appointmentVM.AppointmentTime;
                     appointment.SpecializationId = appointmentVM.SpecializationId;
+                    appointment.Price = price.Price;
                     _context.Appointments.Add(appointment);
                     await _context.SaveChangesAsync();
                     return RedirectToAction(nameof(Index));

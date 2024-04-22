@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "4Y4NHYywc/k+o5UfK5JXsbA1jjD1+h//AtTwuJFpTvg=",
+  "Hash": "XrDxHMS2TIuEBWXQd4LnEOaPQfMv9M2WdHu2CqEoiDI=",
   "Source": "MedicalAppointment",
   "BasePath": "_content/MedicalAppointment",
   "Mode": "Default",
@@ -1343,6 +1343,23 @@
       "OriginalItemSpec": "wwwroot/js/ajax.js"
     },
     {
+      "Identity": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/appointment.js",
+      "SourceId": "MedicalAppointment",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/",
+      "BasePath": "_content/MedicalAppointment",
+      "RelativePath": "js/appointment.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/appointment.js"
+    },
+    {
       "Identity": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/calendar.js",
       "SourceId": "MedicalAppointment",
       "SourceType": "Discovered",
@@ -1375,6 +1392,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/js/qr.js"
+    },
+    {
+      "Identity": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/schedulecalendar.js",
+      "SourceId": "MedicalAppointment",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/",
+      "BasePath": "_content/MedicalAppointment",
+      "RelativePath": "js/schedulecalendar.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/js/schedulecalendar.js"
     },
     {
       "Identity": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/js/site.js",
