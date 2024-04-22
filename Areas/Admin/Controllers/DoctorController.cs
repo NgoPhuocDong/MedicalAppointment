@@ -10,10 +10,13 @@ using MedicalAppointment.Models;
 using MedicalAppointment.Models.ViewModels;
 using System.Numerics;
 using Microsoft.SqlServer.Server;
+using Microsoft.AspNetCore.Authorization;
+using System.Data;
 
 namespace MedicalAppointment.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class DoctorController : Controller
     {
         private readonly ApplicationDbContext _context;

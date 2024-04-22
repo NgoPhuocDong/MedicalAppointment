@@ -7,10 +7,12 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using MedicalAppointment.Data;
 using MedicalAppointment.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace MedicalAppointment.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class ShiftController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -23,7 +25,7 @@ namespace MedicalAppointment.Areas.Admin.Controllers
         // GET: Admin/Shift
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Shifts.Include(s => s.Schedule);
+            var applicationDbContext = _context.Shifts.Include(s => s.Schedule.ApplicationUser);
             return View(await applicationDbContext.ToListAsync());
         }
 
