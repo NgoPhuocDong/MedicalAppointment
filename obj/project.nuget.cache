@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Pn3XSJqLofAba3wC9tNSzlCdJ/a3ZOytPpumkPn9Ri9qvi3DYWm3/enL5lDv6hny6O3bbKeHD9EmHye53EN8cQ==",
+  "dgSpecHash": "2r9We4wpJOCGJBfFDNbRn4os/WxxSBNrAFiblfgWRrZ1zRtUa/XseNvdFmBcjv+fRqEa93K9ZBoo6MpuL2h3WQ==",
   "success": true,
-  "projectFilePath": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/MedicalAppointment.csproj",
+  "projectFilePath": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/MedicalAppointment.csproj",
   "expectedPackageFiles": [
     "/Users/phuocdong/.nuget/packages/azure.core/1.35.0/azure.core.1.35.0.nupkg.sha512",
     "/Users/phuocdong/.nuget/packages/azure.identity/1.10.3/azure.identity.1.10.3.nupkg.sha512",

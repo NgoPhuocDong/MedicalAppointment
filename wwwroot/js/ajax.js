@@ -43,31 +43,34 @@ function submitImage() {
 }
 
 //form lọc dữ liệu
-//function SubmitForm(genderId) {
-//    const form = document.getElementById(genderId);
-//    form.submit();
+function SubmitForm(form) {
+    form.submit();
+}
+
+//function GetFilteredDoctor() {
+//    $('input [type="checkbox"] [name="gender"]').on('change', function () {
+//        var selectedGender = $('input[type="checkbox"] [name="gender"]: checked').map(function () {
+//            return $(this).val();
+//        }).get();
+
+//        $.ajax({
+//            url: '/Doctor/GetFilteredDoctor',
+//            type: 'POST',
+//            dataType: 'html',
+//            data: {
+//                gender: selectedGender
+//            }，
+//            success: function (result) {
+//                $("#doctor-list").html(result);
+//            },
+//            error: function () {
+//                console.log('An error occurred while retrieving filtered product data.');
+//            }
+//        });
+//    });
 //}
 
-//$('input [type="checkbox"] [name="gender"]').on('change', function () {
-//    var selectedGender = $('input[type="checkbox"] [name="gender"]: checked').map(function () {
-//        return $(this).val();
-//    }).get();
 
-//    $.ajax({
-//        url: '/Doctor/GetFilteredDoctor',
-//        type: 'POST',
-//        dataType: 'html',
-//        data: {
-//            gender: selectedGender
-//        }，
-//        success: function (result) {
-//            $("#doctor-list").html(result);
-//        },
-//        error: function () {
-//            console.log('An error occurred while retrieving filtered product data.');
-//        }
-//    });
-//});
 
 
 

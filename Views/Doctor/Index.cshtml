@@ -9,19 +9,22 @@
                     <input name="inputsearch" class="form-control" placeholder="Tìm kiếm tên, chuyên khoa" />
                 </form>
                 <h5 class="mt-3">Chuyên khoa</h5>
-                <form>
-                    <select name="inputsearch" class="form-control" asp-items="ViewBag.Specialize"></select>
+                <form id="specialize-form">
+                    <select name="inputsearch" class="form-control" asp-items="ViewBag.Specialize" onchange="SubmitForm(this.form)">
+                        <option></option>
+                    </select>
+                    <button type="submit" style="display: none;" onchange="SubmitForm(this.form)">gửi</button>
                 </form>
 
                 <h5 class="mt-3">Giới tính</h5>
                 <div class="form-control">
                     <form id="gender-form">
                         <span class="form-check">
-                            <input type="checkbox" class="form-check-input" name="gender" value="Nam" onchange="SubmitForm('gender-form')" />
+                            <input type="radio" class="gender form-check-input" name="gender" value="Nam" />
                             <label class="form-check-label">Nam</label>
                         </span>
                         <span class="form-check">
-                            <input type="checkbox" class="form-check-input" name="gender" value="Nữ" onchange="SubmitForm('gender-form')">
+                            <input type="radio" class="gender form-check-input" name="gender" value="Nữ">
                             <label class="form-check-label">Nữ</label>
                         </span>
                     </form>
@@ -32,8 +35,11 @@
                     <select class="form-control">
                         <option>Tên(A-Z)</option>
                         <option>Tên(Z-A)</option>
+
                     </select>
+
                 </form>
+                <button id="testbut">tets</button>
 
             </div>
             <div class="col-md-8 p-3 border border-start-0 row">

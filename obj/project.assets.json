@@ -12117,11 +12117,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/MedicalAppointment.csproj",
+      "projectUniqueName": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/MedicalAppointment.csproj",
       "projectName": "MedicalAppointment",
-      "projectPath": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/MedicalAppointment.csproj",
+      "projectPath": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/MedicalAppointment.csproj",
       "packagesPath": "/Users/phuocdong/.nuget/packages/",
-      "outputPath": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/obj/",
+      "outputPath": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/phuocdong/.nuget/NuGet/NuGet.Config"

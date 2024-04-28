@@ -54,7 +54,7 @@ namespace MedicalAppointment.Controllers
                 .Include(m => m.Specialization)
                 .Where(m => m.User != null && m.User.UserRoles != null && m.User.UserRoles.Any(ur => ur.Role != null && ur.Role.Name == "Doctor"))
                 .Where(m => m.User.FullName.ToLower().Contains(inputsearch.ToLower())
-                    || m.Specialization.Name.ToLower().Contains(inputsearch.ToLower())
+                    || m.SpecializationId.ToLower().Contains(inputsearch.ToLower())
                     || string.IsNullOrEmpty(inputsearch) == true
                     || m.User.Gender.ToLower().Contains(inputsearch.ToLower()))
                 .ToListAsync();
@@ -76,6 +76,7 @@ namespace MedicalAppointment.Controllers
             return PartialView("_DoctorList", doctor);
             
         }
+
         //sử lý dữ liệu ajax
         [HttpGet]
         public JsonResult GetSavedDates(string UserId)

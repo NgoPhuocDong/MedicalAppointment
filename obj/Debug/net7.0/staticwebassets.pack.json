@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets/MedicalAppointment.bundle.scp.css"
     },
     {
-      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/.DS_Store",
-      "PackagePath": "staticwebassets/.DS_Store"
-    },
-    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/css/Identitysite.css",
       "PackagePath": "staticwebassets/css/Identitysite.css"
     },
@@ -27,10 +23,6 @@
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/favicon.ico",
       "PackagePath": "staticwebassets/favicon.ico"
-    },
-    {
-      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/.DS_Store",
-      "PackagePath": "staticwebassets/images/.DS_Store"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/images/profile/72cb8ee6-b44d-4965-b741-57d25f8cce78.png",
@@ -89,20 +81,8 @@
       "PackagePath": "staticwebassets/js/site.js"
     },
     {
-      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/.DS_Store",
-      "PackagePath": "staticwebassets/lib/.DS_Store"
-    },
-    {
-      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/bootstrap/.DS_Store",
-      "PackagePath": "staticwebassets/lib/bootstrap/.DS_Store"
-    },
-    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/bootstrap/LICENSE",
       "PackagePath": "staticwebassets/lib/bootstrap"
-    },
-    {
-      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/bootstrap/dist/.DS_Store",
-      "PackagePath": "staticwebassets/lib/bootstrap/dist/.DS_Store"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
@@ -281,12 +261,32 @@
       "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
     },
     {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/fonts/FontAwesome.otf",
+      "PackagePath": "staticwebassets/lib/fonts/FontAwesome.otf"
+    },
+    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/fonts/font-awesome.min.css",
       "PackagePath": "staticwebassets/lib/fonts/font-awesome.min.css"
     },
     {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/fonts/fontawesome-webfont.eot",
+      "PackagePath": "staticwebassets/lib/fonts/fontawesome-webfont.eot"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/fonts/fontawesome-webfont.svg",
+      "PackagePath": "staticwebassets/lib/fonts/fontawesome-webfont.svg"
+    },
+    {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/fonts/fontawesome-webfont.ttf",
       "PackagePath": "staticwebassets/lib/fonts/fontawesome-webfont.ttf"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/fonts/fontawesome-webfont.woff",
+      "PackagePath": "staticwebassets/lib/fonts/fontawesome-webfont.woff"
+    },
+    {
+      "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/fonts/fontawesome-webfont.woff2",
+      "PackagePath": "staticwebassets/lib/fonts/fontawesome-webfont.woff2"
     },
     {
       "Id": "/Volumes/Ổ Đĩa D/netcore/MedicalAppointment/MedicalAppointment/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
